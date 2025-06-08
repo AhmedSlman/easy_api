@@ -53,8 +53,8 @@ class ServerException extends ApiException {
 
 class ConnectionException extends ApiException {
   ConnectionException({
-    String message = 'No Internet Connection',
-    int? statusCode,
-    dynamic data,
-  }) : super(message: message, statusCode: statusCode, data: data);
+    super.message = 'No Internet Connection',
+    super.statusCode,
+    super.data,
+  });
 }

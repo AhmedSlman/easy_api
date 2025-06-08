@@ -11,14 +11,14 @@ and the Flutter guide for
 [developing packages and plugins](https://flutter.dev/to/develop-packages).
 -->
 
-# Easy API Sl
+# Easy API SL
 
-A Flutter package that makes API calls easy and maintainable. This package provides a simple and flexible way to make HTTP requests with built-in error handling, logging, and token management.
+A Flutter package that makes API calls easy and maintainable. This package provides a simple and flexible way to make HTTP requests with built-in token management, error handling, and logging.
 
 ## Features
 
 - 🚀 Simple and intuitive API
-- 🔒 Built-in token management
+- 🔒 Built-in token management with shared preferences
 - 📝 Comprehensive error handling
 - 📊 Request/Response logging
 - 🔄 Support for all HTTP methods (GET, POST, PUT, PATCH, DELETE)
@@ -40,9 +40,9 @@ dependencies:
 ### Basic Setup
 
 ```dart
-import 'package:easy_api_sl/easy_api.dart';
+import 'package:easy_api_sl/easy_api_sl.dart';
 
-// Create an instance of DioConsumer
+// Create an instance of EasyApi
 final api = EasyApi(
   baseUrl: 'https://api.example.com',
   token: 'your-auth-token', // Optional
@@ -70,6 +70,22 @@ try {
     print('API Error: ${e.message}');
   }
 }
+```
+
+### Token Management
+
+```dart
+// Store token
+await CacheHelper.setToken('your-auth-token');
+
+// Get token
+final token = CacheHelper.getToken();
+
+// Remove token
+await CacheHelper.removeToken();
+
+// Token will be automatically included in requests
+final api = EasyApi(baseUrl: 'https://api.example.com');
 ```
 
 ### Custom Headers
@@ -117,14 +133,14 @@ try {
 
 ## API Reference
 
-### DioConsumer
+### EasyApi
 
 The main class for making API requests.
 
 #### Constructor
 
 ```dart
-DioConsumer({
+EasyApi({
   Dio? dio,
   String? baseUrl,
   String? token,
@@ -143,6 +159,17 @@ DioConsumer({
 - `put(String path, {Object? data, Map<String, dynamic>? queryParameters, Map<String, dynamic>? headers, bool isFormData = false})`
 - `patch(String path, {Object? data, Map<String, dynamic>? queryParameters, Map<String, dynamic>? headers, bool isFormData = false})`
 - `delete(String path, {Object? data, Map<String, dynamic>? queryParameters, Map<String, dynamic>? headers, bool isFormData = false})`
+
+### CacheHelper
+
+Utility class for token management.
+
+#### Methods
+
+- `static Future<void> init()` - Initialize shared preferences
+- `static String? getToken()` - Get stored token
+- `static Future<bool> setToken(String token)` - Store token
+- `static Future<bool> removeToken()` - Remove stored token
 
 ## Contributing
 

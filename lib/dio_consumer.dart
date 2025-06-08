@@ -38,7 +38,7 @@ class EasyApi extends ApiConsumer {
     }
   }
 
-  Map<String, String> _getHeaders(Map<String, dynamic>? additionalHeaders) {
+  Map<String, String> getHeaders(Map<String, dynamic>? additionalHeaders) {
     final headers = Map<String, String>.from(defaultHeaders);
     final authToken = token ?? CacheHelper.getToken();
     if (authToken != null) {
@@ -124,7 +124,7 @@ class EasyApi extends ApiConsumer {
       final response = await dio.get(
         path,
         queryParameters: queryParameters,
-        options: Options(headers: _getHeaders(headers)),
+        options: Options(headers: getHeaders(headers)),
       );
       return response.data;
     } on DioException catch (e) {
@@ -149,7 +149,7 @@ class EasyApi extends ApiConsumer {
         path,
         data: requestData,
         queryParameters: queryParameters,
-        options: Options(headers: _getHeaders(headers)),
+        options: Options(headers: getHeaders(headers)),
       );
       return response.data;
     } on DioException catch (e) {
@@ -174,7 +174,7 @@ class EasyApi extends ApiConsumer {
         path,
         data: requestData,
         queryParameters: queryParameters,
-        options: Options(headers: _getHeaders(headers)),
+        options: Options(headers: getHeaders(headers)),
       );
       return response.data;
     } on DioException catch (e) {
@@ -199,7 +199,7 @@ class EasyApi extends ApiConsumer {
         path,
         data: requestData,
         queryParameters: queryParameters,
-        options: Options(headers: _getHeaders(headers)),
+        options: Options(headers: getHeaders(headers)),
       );
       return response.data;
     } on DioException catch (e) {
@@ -224,7 +224,7 @@ class EasyApi extends ApiConsumer {
         path,
         data: requestData,
         queryParameters: queryParameters,
-        options: Options(headers: _getHeaders(headers)),
+        options: Options(headers: getHeaders(headers)),
       );
       return response.data;
     } on DioException catch (e) {

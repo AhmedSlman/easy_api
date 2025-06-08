@@ -1,6 +1,5 @@
+import 'package:easy_api_sl/dio_consumer.dart';
 import 'package:flutter_test/flutter_test.dart';
-
-import 'package:easy_api/easy_api.dart';
 
 void main() {
   group('EasyApi', () {
@@ -18,7 +17,7 @@ void main() {
     });
 
     test('should have correct default headers', () {
-      final headers = api._getHeaders(null);
+      final headers = api.getHeaders(null);
       expect(headers['Accept'], 'application/json');
       expect(headers['Content-Type'], 'application/json');
     });

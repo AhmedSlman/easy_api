@@ -1,5 +1,5 @@
-import 'package:easy_api/easy_api.dart';
-import 'package:easy_api/api_exceptions.dart';
+import 'package:easy_api_sl/api_exceptions.dart';
+import 'package:easy_api_sl/dio_consumer.dart';
 
 void main() async {
   // Create an instance of DioConsumer

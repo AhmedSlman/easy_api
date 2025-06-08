@@ -3,7 +3,7 @@ import 'package:easy_api/api_exceptions.dart';
 
 void main() async {
   // Create an instance of DioConsumer
-  final api = DioConsumer(
+  final api = EasyApi(
     baseUrl: 'https://jsonplaceholder.typicode.com',
     enableLogging: true,
   );

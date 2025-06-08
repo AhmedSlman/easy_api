@@ -2,9 +2,22 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class CacheHelper {
   static SharedPreferences? _prefs;
+  static const String _tokenKey = 'auth_token';
 
   static Future<void> init() async {
     _prefs = await SharedPreferences.getInstance();
+  }
+
+  static String? getToken() {
+    return _prefs?.getString(_tokenKey);
+  }
+
+  static Future<bool> setToken(String token) async {
+    return await _prefs?.setString(_tokenKey, token) ?? false;
+  }
+
+  static Future<bool> removeToken() async {
+    return await _prefs?.remove(_tokenKey) ?? false;
   }
 
   static dynamic getData({required String key}) {

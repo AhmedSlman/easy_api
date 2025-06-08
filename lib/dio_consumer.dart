@@ -1,15 +1,16 @@
 import 'package:dio/dio.dart';
 import 'api_consumer.dart';
 import 'api_exceptions.dart';
+import 'cache_helper.dart';
 
-class DioConsumer extends ApiConsumer {
+class EasyApi extends ApiConsumer {
   final Dio dio;
   final String? baseUrl;
   final String? token;
   final Map<String, String> defaultHeaders;
   final bool enableLogging;
 
-  DioConsumer({
+  EasyApi({
     Dio? dio,
     this.baseUrl,
     this.token,
@@ -39,8 +40,9 @@ class DioConsumer extends ApiConsumer {
 
   Map<String, String> _getHeaders(Map<String, dynamic>? additionalHeaders) {
     final headers = Map<String, String>.from(defaultHeaders);
-    if (token != null) {
-      headers['Authorization'] = 'Bearer $token';
+    final authToken = token ?? CacheHelper.getToken();
+    if (authToken != null) {
+      headers['Authorization'] = 'Bearer $authToken';
     }
     if (additionalHeaders != null) {
       headers.addAll(Map<String, String>.from(additionalHeaders));

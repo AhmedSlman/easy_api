@@ -4,9 +4,10 @@ import 'cache_helper.dart';
 class ApiInterceptors extends Interceptor {
   @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
-    options.headers['Authorization'] = CacheHelper.getData(key: 'token') != null
-        ? "Bearer ${CacheHelper.getData(key: "token")}"
-        : null;
+    final token = CacheHelper.getToken();
+    if (token != null) {
+      options.headers['Authorization'] = 'Bearer $token';
+    }
     super.onRequest(options, handler);
   }
 }

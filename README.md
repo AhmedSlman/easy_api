@@ -11,7 +11,7 @@ and the Flutter guide for
 [developing packages and plugins](https://flutter.dev/to/develop-packages).
 -->
 
-# Easy API
+# Easy API Sl
 
 A Flutter package that makes API calls easy and maintainable. This package provides a simple and flexible way to make HTTP requests with built-in error handling, logging, and token management.
 
@@ -32,7 +32,7 @@ Add this to your package's `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  easy_api: ^0.1.0
+  easy_api_sl: ^0.1.0
 ```
 
 ## Usage
@@ -40,10 +40,10 @@ dependencies:
 ### Basic Setup
 
 ```dart
-import 'package:easy_api/easy_api.dart';
+import 'package:easy_api_sl/easy_api.dart';
 
 // Create an instance of DioConsumer
-final api = DioConsumer(
+final api = EasyApi(
   baseUrl: 'https://api.example.com',
   token: 'your-auth-token', // Optional
 );
@@ -75,7 +75,7 @@ try {
 ### Custom Headers
 
 ```dart
-final api = DioConsumer(
+final api = EasyApi(
   baseUrl: 'https://api.example.com',
   defaultHeaders: {
     'Accept': 'application/json',

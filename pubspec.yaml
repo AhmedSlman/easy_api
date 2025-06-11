@@ -1,10 +1,10 @@
 name: easy_api_sl
 description: A Flutter package that makes API calls easy and maintainable with built-in token management, error handling, and logging.
 version: 0.1.0
-homepage: https://github.com/AhmedSlman/easy_api
-repository: https://github.com/AhmedSlman/easy_api
-issue_tracker: https://github.com/AhmedSlman/easy_api/issues
-documentation: https://github.com/AhmedSlman/easy_api#readme
+homepage: https://github.com/AhmedSlman/easy_api_sl
+repository: https://github.com/AhmedSlman/easy_api_sl
+issue_tracker: https://github.com/AhmedSlman/easy_api_sl/issues
+documentation: https://github.com/AhmedSlman/easy_api_sl#readme
 
 environment:
   sdk: ">=3.0.0 <4.0.0"

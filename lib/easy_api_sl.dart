@@ -4,8 +4,7 @@
 /// with built-in token management, error handling, and logging.
 library easy_api_sl;
 
-export 'api_consumer.dart';
-export 'dio_consumer.dart';
-export 'api_interceptors.dart';
-export 'api_exceptions.dart';
-export 'cache_helper.dart';
+export 'src/api/api_consumer.dart';
+export 'src/api/dio_consumer.dart';
+export 'src/exceptions/api_exceptions.dart';
+export 'src/utils/cache_helper.dart';
